@@ -21,9 +21,9 @@ This backend service:
 ## Installation & Setup
 
 command
-
+```
   docker-compose up
-
+```
 ## Project Structure
 
 ```
