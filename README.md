@@ -13,6 +13,10 @@ This backend service:
 - Provides API endpoints for frontend
 - Computes provider ratings
 - Collect own metrics via **Prometheus**
+- Ports: 
+  - nginx 8082
+  - backend 8081
+  - prometheus 9091
 
 ## Installation & Setup
 
