@@ -16,61 +16,9 @@ This backend service:
 
 ## Installation & Setup
 
-To get started, you'll need a clean Debian 12 server with root user access.
+command
 
-1. **Download the server connection script**
-
-Instead of password login, the security script requires using key-based authentication. This script should be run on your local machine, it doesn't require sudo, and will only forward keys for access.
-
-```bash
-wget https://raw.githubusercontent.com/dearjohndoe/mytonprovider-backend/refs/heads/master/scripts/init_server_connection.sh
-```
-
-2. **Forward keys and disable password access**
-
-```bash
-USERNAME=root PASSWORD=supersecretpassword HOST=123.45.67.89 bash init_server_connection.sh
-```
-
-In case of a man-in-the-middle error, you might need to remove known_hosts.
-
-3. **Log into the remote machine and download the installation script**
-
-```bash
-ssh root@123.45.67.89 # If it asks for a password, the previous step failed.
-
-wget https://raw.githubusercontent.com/dearjohndoe/mytonprovider-backend/refs/heads/master/scripts/setup_server.sh
-```
-
-4. **Run server setup and installation**
-
-This will take a few minutes.
-
-```bash
-PG_USER=pguser PG_PASSWORD=secret PG_DB=providerdb NEWFRONTENDUSER=jdfront NEWSUDOUSER=johndoe NEWUSER_PASSWORD=newsecurepassword bash ./setup_server.sh
-```
-
-Upon completion, it will output useful information about server usage.
-
-## Dev:
-### VS Code Configuration
-Create `.vscode/launch.json`:
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Launch Package",
-            "type": "go",
-            "request": "launch",
-            "mode": "auto",
-            "program": "${workspaceFolder}/cmd",
-            "buildFlags": "-tags=debug",    // to handle OPTIONS queries without nginx when dev
-            "env": {...}
-        }
-    ]
-}
-```
+  docker-compose up
 
 ## Project Structure
 
